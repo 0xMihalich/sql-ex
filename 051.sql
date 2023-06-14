@@ -4,11 +4,11 @@
 */
 WITH shp AS (select name,
                     class
-			   from Ships
-			  union
+	       from Ships
+	      union
              select ship name,
-			        ship class
-			   from Outcomes)
+                    ship class
+               from Outcomes)
 SELECT name
   FROM shp
   JOIN Classes c
@@ -17,5 +17,5 @@ SELECT name
                         from Classes cl
                        where cl.displacement = c.displacement
                          and cl.class in (SELECT shp.class
-						                    FROM shp)
-					 )
+                                            FROM shp)
+                      )
